@@ -1,0 +1,31 @@
+{
+  "name": "cypressassignment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "rmdir /s/q cypress\\reports",
+    "script": "cypress run",
+    "test": "npm run script ||npm run posttest",
+    "posttest": "node cucumber-html-report.js",
+    "test1": "npx cypress run --record --key 2cf84563-b786-4c4c-b10d-d069d3dbd749"
+  },
+  "cypress-cucumber-preprocessor": {
+    "json": {
+      "enabled": true,
+      "formatter": "cucumber-json-formatter",
+      "output": "cypress/reports/json/cucumber-report.json"
+    },
+    "stepDefinitions": "cypress/e2e/BDD/step_definitions/*.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^12.14.0",
+    "multiple-cucumber-html-reporter": "^3.4.0"
+  },
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^17.2.1",
+    "@cypress/browserify-preprocessor": "^3.0.2"
+  }
+}
